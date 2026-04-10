@@ -7,8 +7,9 @@ The latest updates to this readme file is located at https://github.com/ckaloger
 
 This file contains information about the Neutron Transport FDA and it is highly recommended to read this information before running or editing any of the scripts located in this repository.
 
-A Master's Project
+Author
 ------------------------------------------------------------------------
+Christine Kalogeras
 
 A Master's Project
 ------------------------------------------------------------------------
@@ -38,6 +39,10 @@ Contributing
 ------------------------------------------------------------------------
 Pull requests are welcome though this project is in the early stages that I doubt much use will happen. For any major changes, please open an issue to discuss what you would like to change or what changes you would like to see.
 Please make sure to state your changes or updates as appropriate.
+
+Acknowledgement
+------------------------------------------------------------------------
+A thank you to Dr. Hyoung-Kim Lee at the University of New Mexico for his insight into neutron and photon transport deterministic modeling and aid in helping me organize my code and explanation.
 
 License
 ------------------------------------------------------------------------
