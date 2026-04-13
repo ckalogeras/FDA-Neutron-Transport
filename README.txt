@@ -27,7 +27,18 @@ System Requirements
 
 Installation and Setup
 ------------------------------------------------------------------------
-
+You can download or clone the repository.
+Download:
+  - On your browser, navigate to https://github.com/ckalogeras/FDA-Neutron-Transport
+  - Above the list of files, click <> Code.
+  - On the dropdown menu, click Download ZIP
+Clone:
+  - On your browser, navigate to https://github.com/ckalogeras/FDA-Neutron-Transport
+  - Above the list of files, click <> Code.
+  - On the dropdown menu, copy the https link.
+  - Open git Bash
+  - Create a folder to deposit the cloned directory in if you have not done so already and change the current working directory to this location.
+  - Enter >> git clone https://github.com/ckalogeras/FDA-Neutron-Transport.git
 
 Usage
 ------------------------------------------------------------------------
