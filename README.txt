@@ -10,6 +10,7 @@ This file contains information about the Neutron Transport FDA and it is highly 
 Author
 ------------------------------------------------------------------------
 Christine Kalogeras
+      For any questions, I can be reached through github discussion or by email at christine.kalogeras@gmail.com.
 
 A Master's Project
 ------------------------------------------------------------------------
@@ -40,8 +41,37 @@ Clone:
   - Create a folder to deposit the cloned directory in if you have not done so already and change the current working directory to this location.
   - Enter >> git clone https://github.com/ckalogeras/FDA-Neutron-Transport.git
 
+Windows: 
+The GCC C++ compiler can be downloaded with msys2 using instructions from the below link. The folks there put together a great guide so why not use it.
+https://www.mingw-w64.org/getting-started/msys2/
+  - To install the C++ basic development packages, open the MSYS UCRT64.
+  - Enter >> pacman -S base-devel
+  - Accept the default number of packages in the toolchain group by pressing Enter
+  - Add path of MinGW-w64 bin folder to Windows PATH environment cause this is Windows
+  - Open by typing "Edit environment variables" in the Windows search bar
+  - Select Path and Click Edit
+  - Click New and type in "C:\msys64\ucrt64\bin"
+Python releases for Windows can be downloaded from https://www.python.org/downloads/windows/
+
+Linux: 
+Much simpler for C++ and Python, open the terminal and using Bash.
+  - Enter >> sudo apt-get install g++
+  - sudo apt-get install python3
+
 Usage
 ------------------------------------------------------------------------
+This assumes an understanding of particle transport, finite difference approximation. Please read the paper associated with this project if there is any confusion.
+The Excel macro is used to mass-create multiple csv files that represent object slices in the x-y plane that the neutrons will interact with. Using the excel macro files, the shape, material density and material atomic number can be specified. 
+The C++ code utilizes a version of Fick's diffusion equation and a finite difference approximation to calculate the three-dimensional neutron flux and its interactions through a material.
+The Python code is utilized to display the calculation output as a three-dimensional heat map.
+
+1) Alter the object shape and material properties via the excel macro files. Each excel file has a certain number of slices represented by the number of sheets in the bottom tab. This is based upon the determined thickness of each xy cross-section or the user-chosen value of dz. Each value of the cell represents a x-y-z cubic voxel of the object. There are three types of excel macro files that need to be adjusted:
+  - atomicnum_multigrid.xlsm
+  - density_multigrid.xlsm
+  - sigma_multigrid.xlsm
+The atomicnum_multigrid.xlsm file contains the atomic number for the material/s of the cross-section. This only needs to be adjusted once, depending on the object being simulated.
+The density_multigrid.xlsm file contains the object's material/s density for the cross-section in [g/cm^3]. This only needs to be adjusted once, depending on the object being simulated.
+The sigma_multigrid.xlsm file contains the total cross-section for the material/s of the cross-section in [atom/cm].
 
 Future Developments
 ------------------------------------------------------------------------
