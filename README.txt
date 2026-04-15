@@ -65,16 +65,23 @@ The Excel macro is used to mass-create multiple csv files that represent object 
 The C++ code utilizes a version of Fick's diffusion equation and a finite difference approximation to calculate the three-dimensional neutron flux and its interactions through a material.
 The Python code is utilized to display the calculation output as a three-dimensional heat map.
 
-1) Alter the object shape and material properties via the excel macro files. Each excel file has a certain number of slices represented by the number of sheets in the bottom tab. This is based upon the determined thickness of each xy cross-section or the user-chosen value of dz. Each value of the cell represents a x-y-z cubic voxel of the object. There are three types of excel macro files that need to be adjusted:
+1) Alter the object shape and material properties via the excel macro files. Each excel file has a certain number of slices represented by the number of sheets in the bottom tab. This is based upon the determined thickness of each xy cross-section or the user-chosen value of dz. For example if your object is 10 cm in the z-axis and you are using 100 micrometer as your dz, then you would have 100 sheets per macro file (Let us hope, it is not this many) Each value of the cell represents a x-y-z cubic voxel of the object. There are three types of excel macro files that need to be adjusted:
   - atomicnum_multigrid.xlsm
   - density_multigrid.xlsm
   - sigma_multigrid.xlsm
 The atomicnum_multigrid.xlsm file contains the atomic number for the material/s of the cross-section. This only needs to be adjusted once, depending on the object being simulated.
 The density_multigrid.xlsm file contains the object's material/s density for the cross-section in [g/cm^3]. This only needs to be adjusted once, depending on the object being simulated.
 The sigma_multigrid.xlsm file contains the total cross-section for the material/s of the cross-section in [atom/cm].
+A list of resources for referencing the neutron cross-sectional values can be found in the associated paper.
+
+2) Run the macro files.
+
 
 Future Developments
 ------------------------------------------------------------------------
+Currently, the software is set up to utilize a single energy neutron source; however, the code does contain the option for calculating the neutron flux for multi-energy sources.
+
+Currently, the software is set up to calculate an approximation of the total neutron interactions utilizing the total neutron cross-section. The template for utilizing downscattering, absorption and removal exists in the code and needs to be refined to enable the user to create multiple sigma cross-section files that are appropriately referenced by the code. The output also needs to be adjusted so that neutrons undergoing downscattering appear in other energy flux matrices and absorption and removal properly show up in their respective matrix.  
 
 Contributing
 ------------------------------------------------------------------------
