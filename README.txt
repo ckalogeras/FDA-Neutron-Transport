@@ -74,7 +74,14 @@ The density_multigrid.xlsm file contains the object's material/s density for the
 The sigma_multigrid.xlsm file contains the total cross-section for the material/s of the cross-section in [atom/cm].
 A list of resources for referencing the neutron cross-sectional values can be found in the associated paper.
 
-2) Run the macro files.
+2) Alter the macro csv file creation path. In the macro-editing tab, locate the macro called "SaveSheetsasCSV" and double-click on it. In the editor, you will see Basic code. Edit the folder path based on your own file system. Make sure the final folder created matches the original file. For example, "C:\Path\to\Your\Folder\atomicnum\" or "C:\Path\to\Your\Folder\sigmat". Save the changes to the macros.
+
+2) Run the macro files once your edits are complete. Three folder should be created by running these macros filled with the csv files that will be loaded into program.
+      - \atomicnum\
+      - \density\
+      - \sigmat\
+
+3)
 
 
 Future Developments
