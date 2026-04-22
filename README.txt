@@ -81,7 +81,13 @@ A list of resources for referencing the neutron cross-sectional values can be fo
       - \density\
       - \sigmat\
 
-3)
+3) Compile the C++ file. Open the Mingw64 terminal window. Navigate to the folder that all the files cloned or downloaded from Github are.
+Enter >> cd C:\Path\to\folder\
+Once, the terminal is pointed towards the correct directory, compile the file.
+Enter >> g++ main.cpp -o main.exe
+An executable file named main (or whatever you decided to name it) will be located in the same folder.
+
+4) Run the main file. 
 
 
 Future Developments
