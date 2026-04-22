@@ -71,23 +71,30 @@ The Python code is utilized to display the calculation output as a three-dimensi
   - sigma_multigrid.xlsm
 The atomicnum_multigrid.xlsm file contains the atomic number for the material/s of the cross-section. This only needs to be adjusted once, depending on the object being simulated.
 The density_multigrid.xlsm file contains the object's material/s density for the cross-section in [g/cm^3]. This only needs to be adjusted once, depending on the object being simulated.
-The sigma_multigrid.xlsm file contains the total cross-section for the material/s of the cross-section in [atom/cm].
+The sigma_multigrid.xlsm file contains the total cross-section for the material/s of the cross-section in [atom/cm]. If you are simulating multi-energy neutron bombardment, you will need to create multiple versions of this file.
 A list of resources for referencing the neutron cross-sectional values can be found in the associated paper.
+If you are simulating multiple energy levels, you will need to create sub-folders for the energy levels so that the appropriate cross-sectional data and the universal density data are saved in them. For example, the folder titled "05ev" contains the density, atomicnumber and the cross-sectional data pertinent to that specific energy level.
 
 2) Alter the macro csv file creation path. In the macro-editing tab, locate the macro called "SaveSheetsasCSV" and double-click on it. In the editor, you will see Basic code. Edit the folder path based on your own file system. Make sure the final folder created matches the original file. For example, "C:\Path\to\Your\Folder\atomicnum\" or "C:\Path\to\Your\Folder\sigmat". Save the changes to the macros.
 
-2) Run the macro files once your edits are complete. Three folder should be created by running these macros filled with the csv files that will be loaded into program.
+3) Run the macro files once your edits are complete. Three folder should be created by running these macros filled with the csv files that will be loaded into program.
       - \atomicnum\
       - \density\
       - \sigmat\
+If you are running a simulation with multiple energy levels, you will have to create
 
-3) Compile the C++ file. Open the Mingw64 terminal window. Navigate to the folder that all the files cloned or downloaded from Github are.
+4) Compile the C++ file. Open the Mingw64 terminal window. Navigate to the folder containing all the files cloned or downloaded from Github.
 Enter >> cd C:\Path\to\folder\
 Once, the terminal is pointed towards the correct directory, compile the file.
 Enter >> g++ main.cpp -o main.exe
 An executable file named main (or whatever you decided to name it) will be located in the same folder.
 
-4) Run the main file. 
+5) Run the main file. In the same Mingw64 window, type the following:
+Enter >> ./main.exe
+Text will appear stating "Enter the file directory containing the energy levels and ending with '/' ."
+Type in your response and press the Enter key.
+Then, more text will appear "Enter the cross-sectional width for the x-, y- and z-axes in cm:"
+Enter this value once. It should be the same for all three axes since the model is breaking the object into cubic segments.
 
 
 Future Developments
