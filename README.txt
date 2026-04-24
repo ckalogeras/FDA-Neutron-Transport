@@ -115,6 +115,14 @@ Enter the neutron flux value for this energy level.
 Once the model is done calculating the flux through the various slices, you will be prompted to the name the file of the excurrent neutron matrix (the neutron flux of the last segment of the object).
 Then, you will be prompted to name the files for the total neutron flux passing through the object.
 
+6) Plot the 3D results. Open the command terminal.
+Enter >> py plotter3d.py
+You will be prompted to enter the folder of the files containing the csv files exported from the C++ program.
+You will also be asked to enter the length, width and height of the object in cm.
+Additionally, you will need to enter the resolution (step-size in cm) used in the flux model calculation.
+Finally, you will need to enter the energy level of the neutron flux calculation set in eV.
+A three-dimensional rotatable heatmap plot will appear with "hotter" colors indicating the higher flux levels and "cooler" colors indicating areas with lower neutron flux.
+
 Future Developments
 ------------------------------------------------------------------------
 Currently, the macro files are set up to utilize a single cubic shape; however, it would be useful to test this out with shapes of varying sizes.
