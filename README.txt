@@ -72,7 +72,8 @@ The C++ code utilizes a version of Fick's diffusion equation and a finite differ
 The Python code is utilized to display the calculation output as a three-dimensional heat map.
 
 1) Alter the object shape and material properties via the excel macro files. Each excel file has a certain number of slices represented by the number of sheets in the bottom tab. 
-This is based upon the determined thickness of each xy cross-section or the user-chosen value of dz. For example if your object is 10 cm in the z-axis and you are using 100 micrometer as your dz, then you would have 100 sheets per macro file (Let us hope, it is not this many) Each value of the cell represents a x-y-z cubic voxel of the object. 
+This is based upon the determined thickness of each xy cross-section or the user-chosen value of dz. For example if your object is 10 cm in the z-axis and you are using 100 micrometer as your dz, then you would have 100 sheets per macro file (Let us hope, it is not this many).
+Each value of the cell represents a x-y-z cubic voxel of the object. 
 There are three types of excel macro files that need to be adjusted:
   - atomicnum_multigrid.xlsm
   - density_multigrid.xlsm
@@ -86,9 +87,11 @@ A list of resources for referencing the neutron cross-sectional values can be fo
 If you are simulating multiple energy levels, you will need to create sub-folders for the energy levels so that the appropriate cross-sectional data and the universal density data are saved in them.
 For example, the folder titled "05ev" contains the density, atomicnumber and the cross-sectional data pertinent to that specific energy level.
 
-2) Alter the macro csv file creation path. In the macro-editing tab, locate the macro called "SaveSheetsasCSV" and double-click on it. 
+2) Alter the macro csv file creation path.
+In the macro-editing tab, locate the macro called "SaveSheetsasCSV" and double-click on it. 
 In the editor, you will see Basic code. Edit the folder path based on your own file system. 
-Make sure the final folder created matches the original file. For example, "C:\Path\to\Your\Folder\atomicnum\" or "C:\Path\to\Your\Folder\sigmat". Save the changes to the macros.
+Make sure the final folder created matches the original file. 
+For example, "C:\Path\to\Your\Folder\atomicnum\" or "C:\Path\to\Your\Folder\sigmat". Save the changes to the macros.
 
 3) Run the macro files once your edits are complete. 
 Three folder should be created by running these macros filled with the csv files that will be loaded into program.
@@ -97,7 +100,8 @@ Three folder should be created by running these macros filled with the csv files
       - \sigmat\
 If you are running a simulation for multiple energy levels, you will need to run the macro files for every energy folder that is created and ensure that the three folders have been created.
 
-4) Compile the C++ file. Open the Mingw64 terminal window. Navigate to the folder containing all the files cloned or downloaded from Github.
+4) Compile the C++ file. Open the Mingw64 terminal window. 
+Navigate to the folder containing all the files cloned or downloaded from Github.
 Enter >> cd C:\Path\to\folder\
 Once, the terminal is pointed towards the correct directory, compile the file.
 Enter >> g++ main.cpp -o main.exe
@@ -129,11 +133,14 @@ Currently, the macro files are set up to utilize a single cubic shape; however, 
 
 In light of creating unconventional shapes, it would be useful to create a GUI or method of creating multiple slices with the material properties as this would save a lot of time in set up.
 
-Currently, the software is set up to calculate an approximation of the total neutron interactions utilizing the total neutron cross-section. The template for utilizing downscattering, absorption and removal exists in the code and needs to be refined to enable the user to create multiple sigma cross-section files that are appropriately referenced by the code. The output also needs to be adjusted so that neutrons undergoing downscattering appear in other energy flux matrices and absorption and removal properly show up in their respective matrix.  
+Currently, the software is set up to calculate an approximation of the total neutron interactions utilizing the total neutron cross-section. 
+The template for utilizing downscattering, absorption and removal exists in the code and needs to be refined to enable the user to create multiple sigma cross-section files that are appropriately referenced by the code. 
+The output also needs to be adjusted so that neutrons undergoing downscattering appear in other energy flux matrices and absorption and removal properly show up in their respective matrix.  
 
 Contributing
 ------------------------------------------------------------------------
-Pull requests are welcome; however, this project is in the early stages that I doubt much use will happen. For any major changes, please open an issue to discuss what you would like to change or what changes you would like to see.
+Pull requests are welcome; however, this project is in the early stages that I doubt much use will happen. 
+For any major changes, please open an issue to discuss what you would like to change or what changes you would like to see.
 Please make sure to state your changes or updates as appropriate.
 
 Acknowledgement
@@ -143,7 +150,8 @@ A thank you to Dr. Hyoung-Kim Lee at the University of New Mexico for his insigh
 License
 ------------------------------------------------------------------------
 Apache License 2.0
-A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
+A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. 
+Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
 
 
