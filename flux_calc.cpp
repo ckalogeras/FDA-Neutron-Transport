@@ -100,6 +100,7 @@ struct Slab
 			row.clear();
 		}
 	};
+
 //This function is for the rest of the highest energy level
 	void calc_scathigh2(std::vector<std::vector<float>>& D0, std::vector<std::vector<float>>& Nprev)
 	{
@@ -129,13 +130,23 @@ struct Slab
 			flux_act.push_back(row);
 			row.clear();
 		}	
-	}
+	};
 
 //This function is for the rest of the middle energy level
-	void calc_scatmid2(std::vector<std::vector<float>>& D0, std::vector<std::vector<float>>& sigma_s0, std::vector<std::vector<float>>&)
+	void calc_scatmid2(std::vector<std::vector<float>>& D0, std::vector<std::vector<float>>& sigma_s0, std::vector<std::vector<float>>& Nprev)
 	{
-		for (int j = 0; j < b/del)
-	}
+		//Create for loop to run through y-values from 0 to b cm in intervals of entered cm in one row.
+		for (int j = 0; j < b/del; j++){
+			//Create for loop to run through x-values from 0 to a cm in intervals of entered cm in one row.
+			for (int i = 0; i < (floor(a/del)); i++){
+				value = ((sigma_s0[j][i]*del*Nprev[j][i] - (Dcoeff[j][i]-D0[j][i])*Nprev[j][i])*del)/(-(Dcoeff[j][i]-D0[j][i])-(sigma_r[j][i]*pow(del,2)));
+				row.push_back(value);
+			}
+			flux_act.push_back(row);
+			row.clear();
+		}
+	};
+
 //Function for calculating removal coefficients
 	void calc_sigmar()
 	{
