@@ -17,35 +17,41 @@ void Readin::file_dir(std::string& dirname){
     struct dirent *namelist;
     char* filename;
     int f;
-    if ((d = opendir(dirname.c_str())) != NULL){
-        //*f = scandir(".", &namelist, NULL, alphasort);
-        while ((namelist = readdir(d)) != NULL){
-            if (!strcmp(namelist->d_name, ".") || !strcmp(namelist->d_name, "..")){
-                //skip
+    int error = 1;
+    while (error == 1) {
+        if ((d = opendir(dirname.c_str())) != NULL){
+            //*f = scandir(".", &namelist, NULL, alphasort);
+            while ((namelist = readdir(d)) != NULL){
+                if (!strcmp(namelist->d_name, ".") || !strcmp(namelist->d_name, "..")){
+                    //skip
+                }
+                else {
+                    filename = namelist->d_name;
+                    filenames.push_back(dirname+filename);
+                    //std::cout << filename << std::endl;
+                }
             }
-            else {
-                filename = namelist->d_name;
-                filenames.push_back(dirname+filename);
-                //std::cout << filename << std::endl;
+            closedir(d);
+            //sort the filenames in alphabetical order
+            std::sort(filenames.begin(), filenames.end());
+            for (int i = 0; i<filenames.size(); i++){
+            std::cout << filenames[i] << std::endl;
             }
+            error = 0;
         }
-        closedir(d);
-        //sort the filenames in alphabetical order
-        std::sort(filenames.begin(), filenames.end());
-        for (int i = 0; i<filenames.size(); i++){
-        std::cout << filenames[i] << std::endl;
-        }
-    }
-    //DIR *d;
-    else {
-        //int f;
-        //f = scandir(".", &namelist, NULL, alphasort);
+        //DIR *d;
+        else {
+            //int f;
+            //f = scandir(".", &namelist, NULL, alphasort);
         
-        //scan directory for number of files of NULL type and collect file names
-            //in namelist in alphabetical sorted order
-        perror("scandir");
-        std::cout << "ERROR: Enter a valid directory path ya goof. \n";
-        std::cout << "EXIT_FAILURE" << std::endl;
+            //scan directory for number of files of NULL type and collect file names
+                //in namelist in alphabetical sorted order
+            perror("scandir");
+            std::cout << "ERROR: I cannot find the directory: " << dirname << "Enter a valid directory path ya goof. Don't forget to put a '\' at the end. \n";
+            cin >> dirname;
+            //std::cout << "EXIT_FAILURE" << std::endl;
+            error = 1;
+        }
     }
 }
 
